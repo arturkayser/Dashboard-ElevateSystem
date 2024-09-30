@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Elevate System Dashboard
 
-## Getting Started
+![Light Mode](./mnt/data/light-mode.png)
+![Dark Mode](./mnt/data/dark-mode.png)
 
-First, run the development server:
+## Descrição
+
+Este projeto é um dashboard interface desenvolvido com **Tailwind CSS**, focado em responsividade, suporte para dark/light mode, e uma série de tecnologias modernas como **Radix UI** e **Framer Motion** para animações. Inclui também padrões de composição para formulários e interações.
+
+## Funcionalidades
+
+- **Modo Claro/Escuro:** Comutação entre os modos claro e escuro utilizando **Tailwind Variants**.
+- **Interface Dinâmica:** Componentes construídos com **Radix UI** para acessibilidade e interatividade.
+- **Animações Suaves:** Implementadas com **Framer Motion** para transições fluidas.
+- **Design Responsivo:** Responsividade configurada com breakpoints predefinidos do **Tailwind CSS**.
+- **Formulários Dinâmicos:** Criação de formulários com validação e estilização personalizada.
+
+## Tecnologias Utilizadas
+
+- **Next.js**
+- **Tailwind CSS**
+- **Tailwind Variants**
+- **Radix UI**
+- **Framer Motion**
+- **TypeScript**
+- **React**
+
+## Instalação
+
+Para rodar o projeto localmente, siga os passos abaixo:
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/elevate-system.git
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+```
+
+3. Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Acesse o projeto no seu navegador em [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+A estrutura principal do projeto está localizada em `app/page.tsx`. Você pode modificar e editar a página conforme necessário, e as mudanças serão aplicadas automaticamente.
 
-## Learn More
+## Fonte Customizada
 
-To learn more about Next.js, take a look at the following resources:
+Este projeto usa **next/font** para otimizar e carregar automaticamente a fonte **Inter**, uma fonte customizada do Google.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contribuições
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-## Deploy on Vercel
+## Licença
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este projeto está licenciado sob a **MIT License**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

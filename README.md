@@ -1,7 +1,5 @@
 # Elevate System Dashboard
 
-![Light Mode](./mnt/data/light-mode.png)
-![Dark Mode](./mnt/data/dark-mode.png)
 
 ## Descrição
 
@@ -71,7 +69,4 @@ Este projeto usa **next/font** para otimizar e carregar automaticamente a fonte 
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-## Licença
-
-Este projeto está licenciado sob a **MIT License**.
 

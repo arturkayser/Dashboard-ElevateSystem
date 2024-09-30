@@ -1,113 +1,244 @@
-import Image from "next/image";
+import { SettingsTabs } from '@/components/SettingsTabs'
+import { Select } from '@/components/Form/Select/index'
+import { InputControl, InputIcon, InputRoot } from '@/components/input'
+import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
+import * as FileInput from '@/components/Form/FileInput'
+import { SelectItem } from '@/components/Form/Select/selectItem'
+import { TextArea } from '@/components/Form/textarea'
+import { Button } from '@/components/button'
+import { ThemeProvider } from 'next-themes'
+import { ThemeButton } from '@/components/themeButton'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <ThemeProvider attribute="class">
+        <div className="flex justify-between">
+          <h1 className="text-3xl font-medium text-zinc-900 dark:text-zinc-100">
+            Settings
+          </h1>
+          <ThemeButton />
         </div>
-      </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <SettingsTabs />
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <div className="mt-6 flex flex-col">
+          <div className="flex flex-col justify-between gap-4 border-b border-zinc-200 pb-5 lg:flex-row lg:items-center dark:border-zinc-700">
+            <div className="space-y-1">
+              <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                Personal info
+              </h2>
+              <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                Update your photo and personal details here.
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button variant="outline" type="button">
+                Cancel
+              </Button>
+              <Button variant="primary" type="submit" form="settings">
+                Save
+              </Button>
+            </div>
+          </div>
+          <form
+            id="settings"
+            className="mt-6 flex w-full flex-col gap-5 divide-y divide-zinc-200 dark:divide-zinc-700"
+          >
+            <div className="flex flex-col gap-3 lg:grid lg:grid-cols-form">
+              <label
+                htmlFor="firstName"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Name
+              </label>
+              <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2">
+                <InputRoot>
+                  <InputControl id="firstName" placeholder="John" />
+                </InputRoot>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+                <div className="flex flex-col gap-3 lg:block">
+                  <label
+                    htmlFor="lastName"
+                    className="text-sm font-medium text-zinc-700 lg:hidden dark:text-zinc-300"
+                  >
+                    Last name
+                  </label>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+                  <InputRoot>
+                    <InputControl id="lastName" placeholder="Doe" />
+                  </InputRoot>
+                </div>
+              </div>
+            </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+            <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
+              <label
+                htmlFor="email"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Email Adress
+              </label>
+              <InputRoot>
+                <InputIcon>
+                  <Mail className="h-5 w-5 text-zinc-500" />
+                </InputIcon>
+                <InputControl
+                  id="email"
+                  type="email"
+                  placeholder="exemplo@elevatesystem.com.br"
+                  defaultValue=""
+                />
+              </InputRoot>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
+              <label
+                htmlFor="photo"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Your photo
+                <span className="mt-0.5 block text-sm font-normal text-zinc-500">
+                  This will be dissplayed on yout profile.
+                </span>
+              </label>
+              <FileInput.Root className="flex flex-col gap-5 lg:flex-row lg:items-start">
+                <FileInput.ImagePreview />
+                <FileInput.Trigger />
+                <FileInput.Control />
+              </FileInput.Root>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
+              <label
+                htmlFor="role"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Role
+              </label>
+              <InputRoot>
+                <InputControl
+                  id="role"
+                  placeholder="Ex: Full Stack Developer"
+                />
+              </InputRoot>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
+              <label
+                htmlFor="country"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Country
+              </label>
+              <Select placeholder="Select a country">
+                <SelectItem value="br" text="Brazil" />
+                <SelectItem value="us" text="United States" />
+                <SelectItem value="ch" text="China" />
+              </Select>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
+              <label
+                htmlFor="timezone"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Time zone
+              </label>
+              <Select placeholder="Select a timezone">
+                <SelectItem value="br" text="BRT (Brasília Time) UTC/GMT -3" />
+                <SelectItem
+                  value="us"
+                  text="EDT (Eastern Daylight Time) UTC/GMT -4"
+                />
+                <SelectItem
+                  value="ch"
+                  text="CST (China Standard Time) UTC/GMT +8"
+                />
+              </Select>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
+              <label
+                htmlFor="Bio"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Bio
+                <span className="mt-0.5 block text-sm font-normal text-zinc-500">
+                  Write a short introduction.
+                </span>
+              </label>
+              <div className="space-y-3">
+                <div className="flex flex-col gap-3 lg:grid lg:grid-cols-2">
+                  <Select placeholder="" defaultValue="normal">
+                    <SelectItem
+                      value="normal"
+                      defaultChecked
+                      text="Normal text"
+                    />
+                    <SelectItem value="md" text="Markdown" />
+                  </Select>
+
+                  <div className="flex items-center gap-1">
+                    <Button type="button" variant="ghost">
+                      <Bold className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                    </Button>
+                    <Button type="button" variant="ghost">
+                      <Italic
+                        className="h-4 w-4 text-zinc-500"
+                        strokeWidth={3}
+                      />
+                    </Button>
+                    <Button type="button" variant="ghost">
+                      <Link className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                    </Button>
+                    <Button type="button" variant="ghost">
+                      <List className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                    </Button>
+                    <Button type="button" variant="ghost">
+                      <ListOrdered
+                        className="h-4 w-4 text-zinc-500"
+                        strokeWidth={3}
+                      />
+                    </Button>
+                  </div>
+                </div>
+
+                <TextArea
+                  id="bio"
+                  defaultValue="I'm a Product Designer based in Melbourne, Australia. I specialise in UX/UI design, brand strategy, and Webflow development."
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-5 lg:grid lg:grid-cols-form">
+              <label
+                htmlFor="projects"
+                className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
+              >
+                Portfolio projects
+                <span className="mt-0.5 block text-sm font-normal text-zinc-500">
+                  Share a few snippets of your work.
+                </span>
+              </label>
+              <FileInput.Root>
+                <FileInput.Trigger />
+                <FileInput.FileList />
+                <FileInput.Control multiple />
+              </FileInput.Root>
+            </div>
+
+            <div className="flex items-center justify-end gap-2 pt-5">
+              <Button variant="outline" type="button">
+                Cancel
+              </Button>
+              <Button variant="primary" type="submit" form="settings">
+                Save
+              </Button>
+            </div>
+          </form>
+        </div>
+      </ThemeProvider>
+    </>
+  )
 }
